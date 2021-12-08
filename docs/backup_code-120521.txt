@@ -1,0 +1,30 @@
+ <h3>Scanned by WebCam Code: {scanResultWebCam}</h3>
+
+let resultJSON = [];
+
+ {resultJSON = "[" + {scanResultWebCam} + "]"}
+                            {console.log(resultJSON)}
+
+
+funciton App(){
+	return (
+		<div>
+		<div>
+			{ Data.map ( post => {
+				return(
+					<div>
+						<h3>{ post.name } </h3>
+						<h3>{ post.vaccine1 } </h3>
+					</div>
+					)
+			}
+	)
+}
+
+
+{dataJSON.map ( post => {
+
+                                    return (
+                                        
+                                    );
+                                }) }
