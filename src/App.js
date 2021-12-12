@@ -9,7 +9,6 @@ import { blue } from '@material-ui/core/colors';
 function App() {
     const classes = useStyles();
     const qrRef = useRef(null);
-    //const [scanResultWebCam, setScanResultWebCam] = useState([{"ID":0,"FirstName":'',"LastName":'',"Email":'',"FirstShotDate":'',"FirstShotName":'',"SecondShotDate":'',"SecondShotName":'',"ThirdShotDate":'',"ThirdShotName":'',"Vaccinated":false}]);
     const [scanResultWebCam, setScanResultWebCam] = useState([]);//{ ID:0,FirstName:"",LastName:"",Email:"",FirstShotDate:"",FirstShotName:"",SecondShotDate:"",SecondShotName:"",ThirdShotDate:"",ThirdShotName:"",Vaccinated:false});
     const customerJSONData = [ {"name":"Jane Smith", "vaccine1":"Pz", "vaccine2":"Pz", "vaccine3":null, "booster":null, "status":"false"} ];
     //let dataJSON = [{"ID":0,"FirstName":"Pending","LastName":"Pending","Email":"Pending@","FirstShotDate":"Pending","FirstShotName":"Pending","SecondShotDate":"Pending","SecondShotName":"Pending","ThirdShotDate":"Pending","ThirdShotName":"Pending","Vaccinated":false}];
@@ -61,15 +60,20 @@ function App() {
         
     }
 
-    
+    const clearScanForm = () => {
+        arrayResult = [];
+        setScanResultWebCam(arrayResult)
+    }
 
     
 
+    
+    
        
     return (
-        <Container className={classes.container} style={{width: '80%'}}>
-            <Card>
-                <h2 className={classes.title}>Easy Entry Store QR Code ReactJS</h2>
+        <Container className={classes.container} style={{width: '80%', backgroundColor: '#EAEAEA'}} >
+            <Card style={{backgroundColor: '#D3D3D3'}}>
+                <h2 className={classes.title} style={{backgroundColor: '#75BBC6'}}>Easy Entry Store QR Code ReactJS</h2>
                 <CardContent>
                     <Grid container spacing={2}>
 
@@ -101,9 +105,18 @@ function App() {
                         <b>Third Shot Date:     </b><span>{scanResultWebCam[7]}</span><br/><br/>
                         <b>Third Shot Name:     </b><span>{scanResultWebCam[8]}</span><br/><br/>
                         <b>Vaccinated:      </b><span>{scanResultWebCam[9]}</span><br/>
-                        <div style={{height: '20%', backgroundColor:scanResultWebCam[11]}}><h3 style={{margin: 'auto 20%'}}>STORE ENTRY : {scanResultWebCam[10]}</h3></div>
+                        <div style={{height: 'auto', backgroundColor:scanResultWebCam[11]}}><h3 style={{margin: 'auto 20%'}}>STORE ENTRY : {scanResultWebCam[10]}</h3></div>
+
+                        <br/><br/>
+
+                        <div style={{display: 'flex', justifyContent: 'center' , alignItems: 'center' }}>
+                            <Button onClick={clearScanForm} variant="contained" style={{backgroundColor: '#17A2B8', color: '#FFF'}}>Clear Form</Button>
+
+
+                        </div>
                
-                        <Button>Clear Form</Button>
+
+                        
 
                         
                      
@@ -113,9 +126,10 @@ function App() {
                 </CardContent>
             </Card>
         </Container>
-
-        
     )
+    
+
+    
 
     
 }
